@@ -66,17 +66,25 @@ next.config.mjs     Next.js static-export configuration
 
 ## Validation
 
-Verified automatically:
+The October 2026 Figma audit covers every page section at the original 1440px desktop width. Source properties are preserved in `audit/figma-properties.json`; automated expected values live in `tests/figma-text-spec.json` and `tests/figma-layout-spec.json`.
 
-- Next.js production compilation and static export.
-- Exported HTML asset references resolve to non-empty local files.
-- All page-section fragment links target existing IDs.
-- All rendered images include alt attributes.
-- All SVG assets parse as XML.
+Run the browser checks after installing dependencies:
 
-Browser automation was unavailable in the implementation environment. A screenshot overlay, actual viewport overflow checks, keyboard interaction testing, and live incognito testing have **not** been completed. Pixel-level equivalence is therefore not certified.
+```sh
+npm install
+npm install --no-save playwright
+npx playwright install chromium
+npm run build
+node tests/figma-audit.mjs
+```
 
-Before final assignment submission, review at 1440px, 1280px, 1024px, 768px, 600px, 375px (iPhone 13 mini CSS width), and 320px. Check every CTA, dialog close/Escape/focus return, mobile menu, filter, carousel dot, file validation, footer link, and reduced-motion behavior. Confirm that the hosting audience permits reviewer access and that the GitHub repository is public.
+The runner starts its own local static server, saves section screenshots and JSON to `audit/latest`, and exits nonzero on failed mapped typography/layout checks, missing images, overflow, broken fragments, interaction failures or browser errors. `CHROMIUM_PATH` and `PLAYWRIGHT_MODULE` can select an existing browser/runtime.
+
+The recorded final run is in `audit/final`. It includes typography and line wrapping, layout bounds, seven responsive widths (1280, 1024, 768, 600, 390, 375, 320), image loading, links, dialogs, filters, upload validation, gallery controls and reduced motion. Original raster assets were also compared with the uploaded Figma image data; see `audit/raster-asset-verification.json`.
+
+Figma live extraction reached the Starter quota. The complete property inventory was decoded from the supplied `.fig` snapshot and cross-checked with the retrieved live section contexts. This is a desktop-source audit, not a pixel-diff certification of every property or a mobile design match. Native emoji/font fallback can vary by OS; only Chromium was tested. SVG-contained text and disabled text paints are explicitly classified separately.
+
+GitHub write access returned HTTP 403. This package contains local corrections; no repository push or deployment was performed.
 
 ## Scope
 

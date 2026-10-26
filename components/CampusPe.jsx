@@ -174,7 +174,7 @@ function Hero({ openDialog }) {
             AI-Powered Campus Assistant
           </span>
           <h1 id="hero-title">
-            Connect <span>10X Faster.</span>
+            Connect <span className="hero-multiplier">10X</span><span className="hero-faster">{" Faster."}</span>
           </h1>
           <p>
             One platform connecting students, colleges &amp; employers — faster.
@@ -446,14 +446,14 @@ function OpportunityFeed({ openDialog }) {
           <button onClick={() => openDialog("Matched opportunities")}>
             View all matched opportunities <Icon id="1-1298" />
           </button>
-          <span>Curated for you · Updated daily</span>
+          <span><span className="feed-curated">Curated for you</span> <span className="feed-separator">•</span> <span className="feed-updated">Updated daily</span></span>
         </div>
       </div>
       <div className="feed-annotation">
         <Icon id="1-1306" />
         <p>
-          A mix of colleges, jobs,
-          <br /> internships and gigs — all in one place.
+          <span className="annotation-line">A mix of colleges, jobs,</span>
+          <span className="annotation-line">internships and gigs — all in one place.</span>
         </p>
       </div>
     </div>
@@ -607,14 +607,14 @@ function ResumeSection() {
           </div>
         </div>
         <div className="floating-tag match-tag">
-          <span className="tag-icon">ϟ</span>
+          <span className="tag-icon">⚡</span>
           <span>
             <strong>98% Match Rate</strong>
             <small>AI semantic rank</small>
           </span>
         </div>
         <div className="floating-tag ats-tag">
-          <span className="tag-icon">▣</span>
+          <span className="tag-icon">🔒</span>
           <span>
             <strong>ATS Compliant</strong>
             <small>Standardized parser</small>
@@ -626,7 +626,7 @@ function ResumeSection() {
       </p>
       <div className="matching-stages">
         {[
-          ["Resume analyzed", "● Ready in 4s", "1-1397"],
+          ["Resume analyzed", "Ready in 4s", "1-1397"],
           ["Skills matched", "Deep taxonomy", "1-1409"],
           ["Experience matched", "Contextual seniority", "1-1420"],
           ["1,000+ sources searched", "Real-time aggregators", "1-1431"],
@@ -780,6 +780,8 @@ function AppSection({ openDialog }) {
             </div>
           ))}
         </div>
+        <Icon id="1-1683" className="gallery-edge gallery-edge--left" />
+        <Icon id="1-1683" className="gallery-edge gallery-edge--right" />
         <div
           className="carousel-dots"
           role="group"
@@ -937,25 +939,25 @@ function Footer({ openDialog }) {
           <div>
             <h2>Ready for what’s next?</h2>
             <p>
-              Discover colleges, find opportunities, list your institution, or
-              start hiring with CampusPe.
+              Discover colleges, find opportunities, list your
+              <br className="desktop-break" /> institution, or start hiring with CampusPe.
             </p>
           </div>
           <div className="next-actions">
             <Button href="#colleges">
-              Explore Colleges <span>→</span>
+              Explore Colleges <Icon id="1-1752" />
             </Button>
             <Button href="#opportunities">
-              Find Opportunities <span>→</span>
+              Find Opportunities <Icon id="1-1752" />
             </Button>
             <Button
               variant="outline"
               onClick={() => openDialog("List Your College")}
             >
-              List Your College <span>→</span>
+              List Your College <Icon id="1-1760" />
             </Button>
             <Button variant="outline" onClick={() => openDialog("Post a Job")}>
-              Post a Job <span>→</span>
+              Post a Job <Icon id="1-1760" />
             </Button>
           </div>
         </div>
@@ -980,8 +982,7 @@ function Footer({ openDialog }) {
               {group.links.map(footerLink)}
               {group.title === "Legal & Policies" && (
                 <div className="policy-note">
-                  Separate user, institution and employer terms can live inside
-                  the full Policies page.
+                  Separate user,<br />institution and employer<br />terms can live inside the<br />full Policies page.
                 </div>
               )}
             </div>
@@ -1034,7 +1035,7 @@ function Footer({ openDialog }) {
               aria-label="CampusPe on Instagram"
             >
               <Icon id="1-1843" />
-              <span className="social-in">in</span>
+
             </a>
             <button
               aria-label="CampusPe on Twitter"
@@ -1063,7 +1064,7 @@ function Footer({ openDialog }) {
               aria-label="CampusPe on YouTube"
             >
               <Icon id="1-1855" />
-              <span className="social-yt">yt</span>
+
             </a>
           </div>
         </div>

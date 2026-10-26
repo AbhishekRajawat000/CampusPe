@@ -1,14 +1,16 @@
-import "@fontsource/inter/latin-400.css";
-import "@fontsource/inter/latin-500.css";
-import "@fontsource/inter/latin-600.css";
-import "@fontsource/inter/latin-700.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/700.css";
+import "@fontsource/roboto/latin-600.css";
 import "@fontsource/roboto/latin-700.css";
 import "@fontsource/lora/latin-700.css";
 import "@fontsource/plus-jakarta-sans/latin-500.css";
 import "@fontsource/plus-jakarta-sans/latin-600.css";
 import "@fontsource/plus-jakarta-sans/latin-700.css";
-import "@fontsource/caveat/latin-600.css";
+import "@fontsource/caveat/latin-700.css";
 import "./globals.css";
+import "./figma-corrections.css";
 
 export const metadata = {
   title: "CampusPe — Connect 10X Faster",

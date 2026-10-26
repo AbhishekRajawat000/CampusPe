@@ -3427,3 +3427,79 @@ a.button:active {
     transform: none;
   }
 }
+
+/* Figma 1:1439: college section typography and component geometry. */
+.college-section .process-title h3 { font-size: 20px; line-height: normal; }
+.college-section .process-copy > p { font-size: 14px; line-height: 22px; font-weight: 500; }
+.college-section .process-badges { gap: 12px; padding-top: 4px; }
+.college-section .process-badges .chip { font-size: 12px; font-weight: 600; padding: 7px 13px; border-radius: 8px; }
+.college-section .process-badges .chip--lime { font-family: "Inter", sans-serif; }
+.college-section .process-badges .chip--blue-outline { font-family: "Inter", sans-serif; font-size: 10px; font-weight: 700; line-height: normal; padding: 3px 9px; height: 20px; border-radius: 6px; }
+.college-section .process-badges .chip--slate { font-weight: 500; padding: 5px 13px; background: #f8fafc; }
+.college-section .chip--slate::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #10b981; }
+.college-section .process-badges .chip--indigo { padding: 5px 13px; background: #eef2ff99; border-color: #c7d2fe; }
+.college-section .process-badges .chip--muted { padding: 0; border: 0; font-size: 11px; line-height: 16.5px; font-weight: 500; }
+.college-section .process-badges .chip--solid-blue { padding: 4px 12px; }
+.college-section .chip--rose { color: #be123c; border-color: #fecdd3b3; }
+.college-section .chip--blue { border-color: #bfdbfeb3; }
+.college-section .chip--purple { border-color: #e9d5ffb3; }
+@media (min-width: 1200px) {
+  .college-section { height: auto; min-height: 877px; padding: 56px 0; }
+  .college-section .audience-grid { width: min(1213px, calc(100% - 200px)); grid-template-columns: minmax(0, 458.75fr) minmax(0, 734.25fr); gap: 20px; }
+  .college-section .audience-copy .section-title { font-family: "Roboto", sans-serif; font-size: 48px; line-height: 1.1999413967; min-height: 174px; font-weight: 700; margin: 32px 0 24px; color: #454545; }
+  .college-section .audience-copy .section-description { font-size: 20px; line-height: 28px; font-weight: 400; max-width: 448px; margin-bottom: 32px; }
+  .college-section .audience-copy > .button { width: 216px; height: 44px; min-height: 44px; padding: 10px 20px; line-height: normal; }
+  .college-section .process-cards { margin-right: 25.58px; gap: 20px; }
+  .college-section .process-card { padding: 29px; gap: 0; flex-wrap: nowrap; min-height: 167px; }
+  .college-section .process-card:first-child { min-height: 186px; }
+  .college-section .process-copy { margin-right: 0; }
+  .college-section .process-label { margin-bottom: 12px; }
+  .college-section .process-copy > p { margin-top: 8px; max-width: none; }
+  .college-section .process-badges { flex-direction: column; align-items: flex-end; min-width: 0; flex-shrink: 0; }
+}
+
+@media (max-width: 599px) {
+  .college-section .process-card { flex-direction: column; }
+  .college-section .process-copy { width: 100%; }
+  .college-section .process-badges { width: 100%; flex-direction: row; flex-wrap: wrap; }
+}
+
+/* Read directly from Figma text nodes; its generated preview reports a shorter headline line-height. */
+.college-section .eyebrow { padding: 6px 14px; }
+.college-section .process-label > span { padding: 2px 8px; }
+.college-section .process-badges .chip { padding: 6px 12px; }
+.college-section .process-badges .chip--blue-outline { padding: 2px 8px; }
+.college-section .process-badges .chip--slate,
+.college-section .process-badges .chip--indigo { padding: 4px 12px; }
+.college-section .process-badges .chip--muted { padding: 0; }
+.college-section .process-badges .chip--solid-blue { padding: 3px 11px; }
+@media (min-width: 1200px) {
+  .college-section .process-card { padding: 28px; min-height: 167.4px; }
+  .college-section .process-card:first-child { min-height: 187px; }
+  .college-section .process-card:nth-child(3) { min-height: 167.3px; }
+  .college-section .process-label { margin-bottom: 0; }
+  .college-section .process-title { margin-top: 12px; }
+  .college-section .process-title h3 { line-height: 24px; }
+  .college-section .process-copy > p { margin-top: 7.4px; }
+  .college-section .process-card:first-child .process-title { margin-top: 8.6px; }
+  .college-section .process-card:first-child .process-title h3 { line-height: 28px; }
+  .college-section .process-card:first-child .process-copy > p { margin-top: 4.4px; }
+}
+
+.college-section .chip--rose::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #e11d48; }
+@media (min-width: 1200px) { .college-section .process-card:first-child .process-copy > p { white-space: pre-line; } }
+
+.college-section { background: #f8f9fb; overflow: clip; }
+.college-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(32px);
+  background:
+    radial-gradient(ellipse 192px 192px at 112px 64px, #c7d2fe24 99%, transparent 100%),
+    radial-gradient(ellipse 348px 256px at calc(100% - 252px) calc(50% + 218.5px), #e9d5ff33 99%, transparent 100%),
+    radial-gradient(ellipse 206px 156.5px at 52.15% calc(100% - 197.5px), #bae6fd33 99%, transparent 100%);
+}
+.college-section .audience-grid { position: relative; z-index: 1; }

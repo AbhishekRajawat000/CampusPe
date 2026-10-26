@@ -1,0 +1,697 @@
+[
+  {
+    "selector": ".site-header",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 0,
+      "width": 1440,
+      "height": 80
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".hero",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 80,
+      "width": 1440,
+      "height": 720
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".stats",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 800,
+      "width": 1440,
+      "height": 116
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".partners",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 916,
+      "width": 1440,
+      "height": 274
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".discovery",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 1190,
+      "width": 1440,
+      "height": 900
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".resume-section",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 2090,
+      "width": 1440,
+      "height": 800
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": "#colleges",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 2890,
+      "width": 1440,
+      "height": 877
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": "#employers",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 3767,
+      "width": 1440,
+      "height": 726
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".app-section",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 4493,
+      "width": 1440,
+      "height": 1357
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".support-section",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 5850,
+      "width": 1440,
+      "height": 486
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".footer",
+    "source": "Figma 1:792 section bounds",
+    "rect": {
+      "y": 6336,
+      "width": 1440,
+      "height": 871
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".header-logo",
+    "source": "Figma 1:798",
+    "rect": {
+      "x": 100,
+      "y": 13,
+      "width": 178,
+      "height": 54
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".main-nav",
+    "source": "Figma 1:802",
+    "rect": {
+      "x": 503,
+      "y": 23,
+      "width": 436,
+      "height": 35
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".role-card",
+    "source": "Figma 1:960",
+    "rect": {
+      "width": 365,
+      "height": 407
+    },
+    "style": {
+      "borderRadius": "26px",
+      "borderTopWidth": "2px",
+      "backgroundColor": "rgb(255, 255, 255)"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".stats-inner",
+    "source": "Figma 1:807",
+    "rect": {
+      "x": 166,
+      "y": 816,
+      "width": 1108,
+      "height": 64.027
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".opportunity-feed",
+    "source": "Figma 1:1177",
+    "rect": {
+      "x": 711,
+      "y": 1302.5,
+      "width": 626,
+      "height": 637
+    },
+    "style": {
+      "borderRadius": "24px"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery-steps",
+    "source": "Figma 1:1135",
+    "rect": {
+      "width": 576
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery-step",
+    "source": "Saved Figma 1:1137 card (outer margin wrapper is 576px)",
+    "rect": {
+      "width": 562
+    },
+    "style": {
+      "borderRadius": "12px"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".upload-shell",
+    "source": "Figma 1:1339",
+    "rect": {
+      "width": 592,
+      "height": 324
+    },
+    "style": {
+      "borderRadius": "32px"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".drop-zone",
+    "source": "Figma 1:1341",
+    "rect": {
+      "width": 540,
+      "height": 274
+    },
+    "style": {
+      "borderRadius": "16px",
+      "borderTopStyle": "dashed",
+      "borderTopWidth": "2px"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#colleges .audience-grid",
+    "source": "Figma 1:1444",
+    "rect": {
+      "x": 113.5,
+      "y": 2946,
+      "width": 1213
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#colleges .process-card",
+    "source": "Figma 1:1465",
+    "rect": {
+      "width": 708.667
+    },
+    "style": {
+      "borderRadius": "16px",
+      "borderTopWidth": "1px",
+      "backgroundColor": "rgb(255, 255, 255)"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#colleges .process-card:first-child",
+    "source": "Figma 1:1465",
+    "rect": {
+      "height": 187
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#colleges .process-card:nth-child(2)",
+    "source": "Figma 1:1484",
+    "rect": {
+      "height": 167.4
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#employers .process-card",
+    "source": "Figma 1:1576",
+    "rect": {
+      "width": 741,
+      "height": 132
+    },
+    "style": {
+      "borderRadius": "16px"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".phone--0",
+    "source": "Figma 1:1673",
+    "rect": {
+      "x": 147,
+      "y": 4834,
+      "width": 185.28
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".phone--1",
+    "source": "Figma 1:1674",
+    "rect": {
+      "x": 348,
+      "y": 4798,
+      "width": 216.492
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".phone--2",
+    "source": "Figma 1:1672",
+    "rect": {
+      "x": 580.49,
+      "y": 4739,
+      "width": 275.911
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".phone--3",
+    "source": "Figma 1:1675",
+    "rect": {
+      "x": 872.4,
+      "y": 4794.25,
+      "width": 219
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".phone--4",
+    "source": "Figma 1:1676",
+    "rect": {
+      "x": 1107.4,
+      "y": 4829.84,
+      "width": 184.794
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".download-copy",
+    "source": "Figma 1:1689",
+    "rect": {
+      "x": 129,
+      "y": 5438,
+      "width": 570
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".support-card",
+    "source": "Figma 1:1700",
+    "rect": {
+      "x": 93,
+      "y": 5921,
+      "width": 1240,
+      "height": 324
+    },
+    "style": {
+      "borderRadius": "24px"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".next-banner",
+    "source": "Figma 1:1742",
+    "rect": {
+      "x": 100,
+      "y": 6372,
+      "width": 1240,
+      "height": 171
+    },
+    "style": {
+      "borderRadius": "28px"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".footer-columns",
+    "source": "Figma 1:1766",
+    "rect": {
+      "x": 100,
+      "y": 6595,
+      "width": 1240,
+      "height": 370
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".footer-column h3",
+    "source": "Figma 1:1773",
+    "rect": {},
+    "style": {
+      "fontSize": "20px",
+      "fontWeight": "600",
+      "color": "rgb(30, 36, 44)"
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".footer-contact",
+    "source": "Figma 1:1818",
+    "rect": {
+      "x": 100,
+      "y": 7017,
+      "width": 1240
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".footer-bottom",
+    "source": "Figma 1:1836",
+    "rect": {
+      "x": 100,
+      "y": 7118,
+      "width": 1240
+    },
+    "style": {},
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#colleges .section-title",
+    "source": "Figma 1:1455 direct text properties",
+    "style": {
+      "fontSize": "48px",
+      "fontWeight": "700",
+      "color": "rgb(69, 69, 69)"
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": "#colleges .section-description",
+    "source": "Figma 1:1457 direct text properties",
+    "style": {
+      "fontSize": "20px",
+      "lineHeight": "28px",
+      "fontWeight": "400",
+      "color": "rgb(100, 116, 139)"
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": "#colleges .process-title h3",
+    "source": "Figma 1:1474 / 1493 / 1515 / 1536",
+    "style": {
+      "fontSize": "20px",
+      "fontWeight": "700",
+      "color": "rgb(5, 19, 41)"
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": "#colleges .process-copy > p",
+    "source": "Figma college card descriptions",
+    "style": {
+      "fontSize": "14px",
+      "fontWeight": "500",
+      "lineHeight": "22px",
+      "color": "rgb(100, 116, 139)"
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".hero h1",
+    "source": "Saved Figma 1:892 (section matches live copy)",
+    "rect": {
+      "x": 502.5,
+      "y": 173.14183044433594,
+      "width": 435,
+      "height": 58
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".hero-heading > p",
+    "source": "Saved Figma 1:895 (section matches live copy)",
+    "rect": {
+      "x": 404.0,
+      "y": 239.14183044433594,
+      "width": 632,
+      "height": 24
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".resume-heading h2",
+    "source": "Saved Figma 1:1334 (section matches live copy)",
+    "rect": {
+      "x": 515.0,
+      "y": 2190.125,
+      "width": 410,
+      "height": 104
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".upload-shell",
+    "source": "Saved Figma 1:1339 (section matches live copy)",
+    "rect": {
+      "x": 420.0,
+      "y": 2394.125,
+      "width": 592,
+      "height": 324
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".drop-zone",
+    "source": "Saved Figma 1:1341 (section matches live copy)",
+    "rect": {
+      "x": 445.0,
+      "y": 2419.125,
+      "width": 540,
+      "height": 274
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".app-heading h2",
+    "source": "Saved Figma 1:1686 (section matches live copy)",
+    "rect": {
+      "x": 408,
+      "y": 4583,
+      "width": 538,
+      "height": 42
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".app-heading p",
+    "source": "Saved Figma 1:1687 (section matches live copy)",
+    "rect": {
+      "x": 311,
+      "y": 4645,
+      "width": 818,
+      "height": 82
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".download-copy h2",
+    "source": "Saved Figma 1:1690 (section matches live copy)",
+    "rect": {
+      "x": 129,
+      "y": 5438,
+      "width": 314,
+      "height": 42
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".download-copy > p",
+    "source": "Saved Figma 1:1691 (section matches live copy)",
+    "rect": {
+      "x": 129,
+      "y": 5500,
+      "width": 570,
+      "height": 113
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".next-actions",
+    "source": "Saved Figma 1:1749 (section matches live copy)",
+    "rect": {
+      "x": 606.859375,
+      "y": 6435.779998779297,
+      "width": 684.140625,
+      "height": 43
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery .eyebrow",
+    "source": "Saved Figma 1:1122",
+    "rect": {
+      "x": 100.0,
+      "y": 1275.0,
+      "height": 31
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery .section-title",
+    "source": "Saved Figma 1:1131",
+    "rect": {
+      "x": 100.0,
+      "y": 1330.0,
+      "width": 632,
+      "height": 116
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery .section-description",
+    "source": "Saved Figma 1:1134",
+    "rect": {
+      "x": 100.0,
+      "y": 1466.0,
+      "width": 576,
+      "height": 112
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery-step:first-child",
+    "source": "Saved Figma 1:1137",
+    "rect": {
+      "x": 100.0,
+      "y": 1610.0,
+      "width": 562,
+      "height": 99
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery-step:nth-child(2)",
+    "source": "Saved Figma 1:1148",
+    "rect": {
+      "x": 100.0,
+      "y": 1721.0,
+      "width": 562,
+      "height": 97
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery-step:nth-child(3)",
+    "source": "Saved Figma 1:1159",
+    "rect": {
+      "x": 100.0,
+      "y": 1830.0,
+      "width": 562,
+      "height": 99
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".discovery-cta",
+    "source": "Saved Figma 1:1171",
+    "rect": {
+      "x": 100.0,
+      "y": 1961.0,
+      "width": 252,
+      "height": 44
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#employers .eyebrow",
+    "source": "Saved Figma 1:1556",
+    "rect": {
+      "x": 100.0,
+      "y": 3879.5,
+      "height": 31
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#employers .section-title",
+    "source": "Saved Figma 1:1565",
+    "rect": {
+      "x": 100.0,
+      "y": 3934.5,
+      "width": 451,
+      "height": 232
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#employers .section-description",
+    "source": "Saved Figma 1:1568",
+    "rect": {
+      "x": 100.0,
+      "y": 4200.5,
+      "width": 451,
+      "height": 140
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": "#employers .audience-copy > .button",
+    "source": "Saved Figma 1:1570",
+    "rect": {
+      "x": 100.0,
+      "y": 4379.5,
+      "width": 216,
+      "height": 44
+    },
+    "tolerance": 1.1
+  },
+  {
+    "selector": ".policy-note",
+    "source": "Saved Figma 1:1816",
+    "rect": {
+      "x": 1128.0,
+      "y": 6866.999450683594,
+      "width": 212,
+      "height": 125
+    },
+    "tolerance": 1.1
+  }
+]

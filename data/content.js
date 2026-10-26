@@ -75,7 +75,7 @@ export const opportunities = [
     location: "Bengaluru",
     detail: "MBA",
     price: "₹ 3L+",
-    text: "India’s premier management institute with global exposure...",
+    text: "India's premier management institute with global exposer...",
     action: "View Details",
   },
   {
@@ -108,7 +108,7 @@ export const collegeCards = [
   {
     label: "VERIFIED PROFILE",
     title: "Build your college profile",
-    text: "Showcase your college, courses, fees, campus, placements and achievements in one structured profile that students and recruiters can discover.",
+    text: "Showcase your college, courses, fees, campus, placements and achievements in one structured profile that students and \nrecruiters can discover.",
     badges: [
       { text: "NAAC A++ Ready", tone: "lime", icon: "1-1479" },
       { text: "98% Match", tone: "blue-outline" },
@@ -138,7 +138,7 @@ export const collegeCards = [
     title: "Track placements in real time",
     text: "Track students, interviews, offers and placements from one centralized dashboard.",
     badges: [
-      { text: "● LIVE PLACEMENTS", tone: "rose" },
+      { text: "LIVE PLACEMENTS", tone: "rose" },
       { text: "Students · Interviews · Offers", tone: "solid-blue" },
     ],
   },
@@ -173,7 +173,7 @@ export const employerCards = [
     title: "Reduce your time-to-hire",
     text: "Find matched candidates, connect with them and move from shortlist to offer in one streamlined workflow.",
     badges: [
-      { text: "<2 DAYS", tone: "solid-blue" },
+      { text: "< 2 DAYS", tone: "solid-blue" },
       { text: "57% Faster Hiring", tone: "green" },
     ],
   },
