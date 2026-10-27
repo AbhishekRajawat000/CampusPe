@@ -57,7 +57,7 @@ next.config.mjs     Next.js static-export configuration
 - Opportunity category filters update the sample feed.
 - Step cards have selectable states.
 - Resume selection supports file picker and drag/drop, validates PDF/DOC/DOCX and the 10MB limit, and shows the selected filename. Files are not uploaded or analyzed.
-- App-gallery dots select the featured original screen.
+- App-gallery dots or hovering over a phone select a screen, which moves into the center. The partner logos loop continuously and the upload badges float gently; reduced-motion preferences turn off these animations.
 - Waitlist, college, employer, and account CTAs open labeled demo forms with native validation. No submission is sent or stored.
 - Opportunity buttons open sample details. Sample listings are copied from the design and are not live vacancies.
 - Support links use the email and telephone supplied in the design.
@@ -76,6 +76,7 @@ npm install --no-save playwright
 npx playwright install chromium
 npm run build
 node tests/figma-audit.mjs
+node tests/motion-check.mjs
 ```
 
 The runner starts its own local static server, saves section screenshots and JSON to `audit/latest`, and exits nonzero on failed mapped typography/layout checks, missing images, overflow, broken fragments, interaction failures or browser errors. `CHROMIUM_PATH` and `PLAYWRIGHT_MODULE` can select an existing browser/runtime.
@@ -91,3 +92,7 @@ GitHub write access returned HTTP 403. This package contains local corrections; 
 The supplied file contains a desktop frame; smaller layouts are responsive adaptations. The assignment is frontend-only. Authentication, real matching, submissions, job applications, official policy pages, and live app-store destinations are outside this static build.
 
 Design assets and brand names belong to their respective owners and are included for this replication assignment.
+
+Motion update: the opportunity section stays visible. Steps and feed cards settle into place once on entry, filtered results animate into position, and the feed icon gently pulses. Reduced-motion preferences disable these effects. Stable phone elements, deliberate pointer movement and an 850ms interaction lock prevent repeated screen changes during movement.
+
+The resume-matching row now shows a six-second sequential connector/checkmark animation while in view, with continuously visible text and reduced-motion support.

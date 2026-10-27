@@ -225,7 +225,8 @@
     "rect": {
       "x": 113.5,
       "y": 2946,
-      "width": 1213
+      "width": 1213,
+      "height": 765
     },
     "style": {},
     "tolerance": 1.1
@@ -693,5 +694,57 @@
       "height": 125
     },
     "tolerance": 1.1
+  },
+  {
+    "selector": ".role-card--college",
+    "source": "Figma 1:960",
+    "rect": {
+      "x": 144,
+      "y": 367.5,
+      "width": 365,
+      "height": 407
+    },
+    "tolerance": 0.6
+  },
+  {
+    "selector": ".role-card--job",
+    "source": "Figma 1:1009",
+    "rect": {
+      "x": 537,
+      "y": 367.5,
+      "width": 365,
+      "height": 407
+    },
+    "tolerance": 0.6
+  },
+  {
+    "selector": ".role-card--employer",
+    "source": "Figma 1:1062",
+    "rect": {
+      "x": 930,
+      "y": 367.5,
+      "width": 366,
+      "height": 407
+    },
+    "tolerance": 0.6
+  },
+  {
+    "selector": ".role-card--college .role-card-top",
+    "source": "Figma 1:971",
+    "rect": {
+      "x": 174,
+      "y": 393.5,
+      "width": 305,
+      "height": 48
+    },
+    "tolerance": 1
+  },
+  {
+    "selector": ".phone--2",
+    "source": "Figma 1:1671 center phone top",
+    "rect": {
+      "y": 4739
+    },
+    "tolerance": 0.3
   }
 ]

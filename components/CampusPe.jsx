@@ -270,12 +270,9 @@ function Stats() {
   );
 }
 
-function Partners() {
+function PartnerLogos({ duplicate = false }) {
   return (
-    <section className="partners" aria-label="Our partners">
-      <h2>Trusted by partners across India</h2>
-      <div className="partner-viewport">
-        <div className="partner-track">
+        <div className="partner-track" aria-hidden={duplicate ? "true" : undefined}>
           <OriginalImage
             hash="2172309c15214160504e8198b07d1be50d00d07a"
             width={250}
@@ -324,6 +321,18 @@ function Partners() {
               [0, 0.9770992, 0.0229008],
             ]}
           />
+        </div>
+  );
+}
+
+function Partners() {
+  return (
+    <section className="partners" aria-label="Our partners">
+      <h2>Trusted by partners across India</h2>
+      <div className="partner-viewport">
+        <div className="partner-marquee">
+          <PartnerLogos />
+          <PartnerLogos duplicate />
         </div>
       </div>
     </section>
@@ -395,7 +404,7 @@ function OpportunityFeed({ openDialog }) {
             </button>
           ))}
         </div>
-        <div className="feed-items" aria-live="polite">
+        <div className="feed-items" key={filter} aria-live="polite">
           {shown.length ? (
             shown.map((item) => (
               <article className="feed-item" key={item.id}>
@@ -462,9 +471,22 @@ function OpportunityFeed({ openDialog }) {
 
 function OpportunitySection({ openDialog }) {
   const [active, setActive] = useState(0);
+  const sectionRef = useRef(null);
+  const [entered, setEntered] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setEntered(true);
+        observer.disconnect();
+      }
+    }, { threshold: 0.15 });
+    if (sectionRef.current) observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
   return (
     <section
-      className="discovery section"
+      className={`discovery section ${entered ? "has-entered" : ""}`}
+      ref={sectionRef}
       id="opportunities"
       aria-labelledby="discovery-title"
     >
@@ -517,6 +539,13 @@ function OpportunitySection({ openDialog }) {
 
 function ResumeSection() {
   const inputRef = useRef(null);
+  const stagesRef = useRef(null);
+  const [stagesVisible, setStagesVisible] = useState(false);
+  useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) => setStagesVisible(entry.isIntersecting), { threshold: 0.2 });
+    if (stagesRef.current) observer.observe(stagesRef.current);
+    return () => observer.disconnect();
+  }, []);
   const [file, setFile] = useState(null);
   const [error, setError] = useState("");
   const [dragging, setDragging] = useState(false);
@@ -624,7 +653,7 @@ function ResumeSection() {
       <p className="upload-error" role="status">
         {error}
       </p>
-      <div className="matching-stages">
+      <div className={`matching-stages ${stagesVisible ? "is-running" : ""}`} ref={stagesRef}>
         {[
           ["Resume analyzed", "Ready in 4s", "1-1397"],
           ["Skills matched", "Deep taxonomy", "1-1409"],
@@ -688,6 +717,7 @@ function AudienceSection({ employer = false, openDialog }) {
       id={id}
       aria-labelledby={`${id}-title`}
     >
+      {!employer && <div className="college-overlays" aria-hidden="true"><span /><span /><span /></div>}
       <div className="container audience-grid">
         <div className="audience-copy">
           <Eyebrow>
@@ -746,10 +776,11 @@ function AudienceSection({ employer = false, openDialog }) {
 
 function AppSection({ openDialog }) {
   const [selected, setSelected] = useState(2);
-  const screenOrder = Array.from(
-    { length: 5 },
-    (_, i) => appScreens[(i + selected - 2 + 5) % 5],
-  );
+  const hoverLock = useRef(0);
+  const selectScreen = (index) => {
+    hoverLock.current = performance.now() + 850;
+    setSelected(index);
+  };
   return (
     <section
       className="app-section section"
@@ -769,16 +800,25 @@ function AppSection({ openDialog }) {
       <div className="app-gallery" aria-label="CampusPe app screens">
         <Icon id="1-1669" className="app-gallery-glow" />
         <div className="phone-row">
-          {screenOrder.map((screen, i) => (
-            <div className={`phone phone--${i}`} key={`${i}-${screen.hash}`}>
+          {appScreens.map((screen, index) => {
+            const i = (index - selected + 2 + appScreens.length) % appScreens.length;
+            return <div
+              className={`phone phone--${i}`}
+              key={screen.hash}
+              onPointerMove={(event) => {
+                if (event.pointerType !== "mouse" || (event.movementX === 0 && event.movementY === 0)) return;
+                if (performance.now() >= hoverLock.current) selectScreen(index);
+              }}
+              onClick={() => selectScreen(index)}
+            >
               <OriginalImage
                 hash={screen.hash}
                 alt={screen.alt}
-                width={Math.round(appScreens[i].width)}
-                height={Math.round(appScreens[i].height)}
+                width={Math.round(screen.width)}
+                height={Math.round(screen.height)}
               />
-            </div>
-          ))}
+            </div>;
+          })}
         </div>
         <Icon id="1-1683" className="gallery-edge gallery-edge--left" />
         <Icon id="1-1683" className="gallery-edge gallery-edge--right" />
@@ -793,7 +833,7 @@ function AppSection({ openDialog }) {
               aria-label={`Show ${screen.alt}`}
               aria-pressed={selected === i}
               className={selected === i ? "is-selected" : ""}
-              onClick={() => setSelected(i)}
+              onClick={() => selectScreen(i)}
             />
           ))}
         </div>
