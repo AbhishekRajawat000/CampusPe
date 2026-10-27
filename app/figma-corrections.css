@@ -2108,7 +2108,7 @@
   }
 }
 
-@media (min-width: 768px) and (max-width: 1399px) {
+@media (min-width: 768px) and (max-width: 1199px) {
   .footer {
     height: auto;
     min-height: 0;
@@ -2174,7 +2174,7 @@
     grid-column: auto;
   }
 
-  .policy-note {
+  .footer-column:last-child .policy-note {
     position: static;
     width: 212px;
     max-width: 100%;
@@ -2236,3 +2236,22 @@
     align-items: flex-start;
   }
 }
+
+/* Desktop footer: six columns at laptop widths, matching the reference hierarchy. */
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .footer-columns {
+    display: grid;
+    grid-template-columns: minmax(220px, 2fr) repeat(4, minmax(0, 1fr)) minmax(170px, 1.3fr);
+    gap: 20px;
+    height: auto;
+    min-height: 370px;
+  }
+  .footer-brand { grid-column: auto; }
+  .footer-brand p { max-width: 100%; font-size: 18px; line-height: 26px; }
+  .footer-column h3 { font-size: 17px; white-space: normal; }
+  .footer-column > a, .footer-column > button { white-space: normal; }
+  .footer-column:last-child .policy-note {
+    position: static; width: 100%; max-width: 100%; height: auto; margin: 18px 0 0;
+  }
+}
+
