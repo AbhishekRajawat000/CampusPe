@@ -6,6 +6,7 @@
   --body: #64748b;
   --border: #e2e8f0;
   --container: 1240px;
+  --page-gutter: 20px;
   --radius: 16px;
   --ease: cubic-bezier(0.2, 0.7, 0.3, 1);
 }
@@ -23,7 +24,6 @@ body {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
 }
 body,
 main {
@@ -86,7 +86,7 @@ a.button:active {
   color: #051329;
 }
 .container {
-  width: min(var(--container), calc(100% - 40px));
+  width: min(var(--container), calc(100% - 2 * var(--page-gutter)));
   margin-inline: auto;
 }
 .section {
@@ -2009,8 +2009,8 @@ a.button:active {
 }
 
 @media (min-width: 600px) {
-  .container {
-    width: min(var(--container), calc(100% - 64px));
+  :root {
+    --page-gutter: 32px;
   }
   .header-logo {
     width: 178px;
@@ -2408,8 +2408,9 @@ a.button:active {
 
 /* The reference frame is 1440 × 7207. Preserve its geometry at desktop sizes. */
 @media (min-width: 1200px) {
-  .container {
-    width: min(1240px, calc(100% - 200px));
+  :root {
+    /* Grow from 48px at 1200 to the Figma 100px at 1440. */
+    --page-gutter: clamp(48px, calc(21.666667vw - 212px), 100px);
   }
   .header-inner {
     height: 80px;
@@ -3159,9 +3160,6 @@ a.button:active {
 }
 
 @media (min-width: 1200px) and (max-width: 1399px) {
-  .container {
-    width: calc(100% - 96px);
-  }
   .main-nav {
     margin-left: auto;
   }

@@ -2239,6 +2239,10 @@
 
 /* Desktop footer: six columns at laptop widths, matching the reference hierarchy. */
 @media (min-width: 1200px) and (max-width: 1399px) {
+  /* Wrapped columns must not push contact/social content outside a fixed box. */
+  .footer,
+  .footer-inner { height: auto; }
+  .footer .footer-glow > .icon { top: auto; bottom: 0; }
   .footer-columns {
     display: grid;
     grid-template-columns: minmax(220px, 2fr) repeat(4, minmax(0, 1fr)) minmax(170px, 1.3fr);
