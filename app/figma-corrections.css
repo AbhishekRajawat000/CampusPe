@@ -1314,8 +1314,15 @@
   transition:
     transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
     width 800ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 650ms ease;
+    opacity 650ms ease,
+    filter 300ms ease;
   cursor: pointer;
+}
+.phone-row .phone:not(.phone--2) {
+  filter: blur(2px);
+}
+.phone-row .phone--2 {
+  filter: none;
 }
 .phone-row .phone img {
   display: block;
