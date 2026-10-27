@@ -1659,3 +1659,9 @@
     background: radial-gradient(circle, #007ffc 0 7px, transparent 8px);
   }
 }
+
+@media (max-width: 767px) {
+  .college-section::before {
+    display: none;
+  }
+}
