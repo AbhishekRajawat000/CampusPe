@@ -457,3 +457,18 @@
 @media (prefers-reduced-motion: reduce) {
   .discovery-step::before, .feed-item::before, .college-section .process-card::before { transition: none; }
 }
+
+/* Keep feed content readable and controls usable on narrow screens. */
+@media (max-width: 767px) {
+  .feed-filters { flex-wrap: wrap; padding: 16px 0; }
+  .feed-filters button { min-height: 44px; }
+  .feed-items { min-height: 0; }
+  .feed-item { flex-wrap: wrap; height: auto; min-height: 0; }
+  .feed-item-content { flex: 1 1 180px; min-width: 0; }
+  .feed-title { padding-right: 0; flex-wrap: wrap; }
+  .feed-title .chip { display: inline-flex; }
+  .feed-meta { flex-wrap: wrap; }
+  .feed-item p { white-space: normal; overflow: visible; text-overflow: clip; }
+  .feed-item-action { position: static; min-height: 44px; margin-left: auto; }
+  .carousel-dots button { min-width: 44px; min-height: 44px; }
+}
