@@ -88,6 +88,7 @@ function RoleCard({ role, openDialog }) {
     <article className={`role-card role-card--${role.type}`}>
       <div className="role-art" aria-hidden="true">
         <Icon id={role.art} />
+        {role.type === "employer" && <span className="role-code">&lt;/&gt;</span>}
       </div>
       <div className="role-card-top">
         <span className="role-icon">
@@ -386,7 +387,10 @@ function OpportunityFeed({ openDialog }) {
             <h3>CampusPe Opportunity Feed</h3>
             <p>Colleges &amp; opportunities matched to you</p>
           </div>
-          <span className="new-matches">● 12 new matches today</span>
+          <span className="new-matches">
+            <i aria-hidden="true" />
+            12 new matches today
+          </span>
         </div>
         <div
           className="feed-filters"
@@ -818,11 +822,16 @@ function AppSection({ openDialog }) {
               }}
               onClick={() => selectScreen(index)}
             >
-              <OriginalImage
-                hash={screen.hash}
+              {/* Pre-sized sources keep the downscale small so the phones stay crisp. */}
+              <img
+                src={`/assets/${screen.hash}-600.webp`}
+                srcSet={`/assets/${screen.hash}-400.webp 400w, /assets/${screen.hash}-600.webp 600w, /assets/${screen.hash}.webp 1317w`}
+                sizes="(max-width: 767px) 40vw, 276px"
                 alt={screen.alt}
                 width={Math.round(screen.width)}
                 height={Math.round(screen.height)}
+                loading="lazy"
+                decoding="async"
               />
             </div>;
           })}
@@ -972,7 +981,7 @@ function Footer({ openDialog }) {
     ) : (
       <button key={label} onClick={() => openDialog(label)}>
         {label}
-        {label === "View all policies" && " →"}
+        {label === "View all policies" && <span className="policy-arrow">→</span>}
       </button>
     );
   return (

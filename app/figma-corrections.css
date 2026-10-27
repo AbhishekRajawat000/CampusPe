@@ -156,14 +156,17 @@
   font-size: 11px;
   font-weight: 400;
 }
+/* The design renders these two symbols monochrome, not as colour emoji. */
 .match-tag .tag-icon {
-  font-family: "FreeSans", sans-serif;
+  font-family: "FreeSans", "Segoe UI Symbol", "DejaVu Sans", sans-serif;
   font-size: 12px;
+  font-variant-emoji: text;
   color: #1e293b;
 }
 .ats-tag .tag-icon {
-  font-family: "FreeSerif", serif;
+  font-family: "FreeSerif", "Segoe UI Symbol", "DejaVu Sans", serif;
   font-size: 12px;
+  font-variant-emoji: text;
   color: #1e293b;
 }
 .employer-section .process-badges .chip.chip--solid-blue {
@@ -1299,24 +1302,42 @@
   left: 0;
   top: 0;
   margin: 0;
-  width: 22.2509cqw;
+  /* Render each phone at its real size: scaling a 276px raster down on the
+     GPU made the side phones look soft. */
+  --phone-base: 22.2509cqw;
+  width: calc(var(--phone-base) * var(--phone-scale));
   transform-origin: top left;
-  transform: translate3d(
-      calc(var(--phone-x) / 1240 * 100cqw),
-      calc(var(--phone-y) / 1240 * 100cqw),
-      0
-    )
-    scale(var(--phone-scale));
+  transform: translate(
+    calc(var(--phone-x) / 1240 * 100cqw),
+    calc(var(--phone-y) / 1240 * 100cqw)
+  );
   transition:
     transform 800ms cubic-bezier(0.22, 1, 0.36, 1),
+    width 800ms cubic-bezier(0.22, 1, 0.36, 1),
     opacity 650ms ease;
-  backface-visibility: hidden;
   cursor: pointer;
 }
 .phone-row .phone img {
   display: block;
   width: 100%;
   height: auto;
+  object-fit: cover;
+}
+/* Each Figma slot has its own frame; the screenshot fills it (cover). */
+.phone--0 img {
+  aspect-ratio: 185.28 / 380.59;
+}
+.phone--1 img {
+  aspect-ratio: 216.49 / 452.88;
+}
+.phone--2 img {
+  aspect-ratio: 275.91 / 569;
+}
+.phone--3 img {
+  aspect-ratio: 219 / 456.45;
+}
+.phone--4 img {
+  aspect-ratio: 184.79 / 385.16;
 }
 .phone--0 {
   --phone-x: 47;
@@ -1362,7 +1383,7 @@
     overflow: clip;
   }
   .phone-row .phone {
-    width: 40cqw;
+    --phone-base: 40cqw;
   }
   .phone--0 {
     --phone-x: -580;
@@ -1547,6 +1568,403 @@
   .carousel-dots button {
     min-width: 44px;
     min-height: 44px;
+  }
+}
+
+/* Figma LXUIEcM69wuh5Mod6uJOu2 / 1:792 re-audit (October 2026): measured
+   auto-layout padding, gaps and line heights at the 1440px reference. */
+.new-matches {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.new-matches i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #059669;
+}
+.role-code {
+  position: absolute;
+  left: 50.2px;
+  top: 62px;
+  width: 64px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #bfdbfe80;
+  border-radius: 6px;
+  background: #ffffffb2;
+  box-shadow: 0 1px 2px #0000000d;
+  color: #e57701;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 32px;
+}
+.policy-arrow {
+  display: inline-flex;
+  justify-content: center;
+  width: 13.5px;
+  margin-left: 4px;
+  font-family: "Inter", sans-serif;
+  font-size: 10px;
+}
+@media (min-width: 1200px) {
+  .role-copy > p,
+  .step-description {
+    white-space: pre-line;
+  }
+  .header-actions .button--text {
+    padding: 6px 10.8px 6px 12px;
+  }
+  /* Figma maps each range's gradient across the whole 435px title box. */
+  .hero h1 .hero-multiplier,
+  .hero h1 .hero-faster {
+    background-size: 435px 100%;
+    background-repeat: no-repeat;
+  }
+  .hero h1 .hero-multiplier {
+    background-position: -191.4px 0;
+  }
+  .hero h1 .hero-faster {
+    background-position: -277px 0;
+  }
+}
+@media (min-width: 1400px) {
+  /* Hero notes */
+  .whatsapp-note {
+    padding: 16px 18px;
+  }
+  .whatsapp-note .note-label {
+    color: #d96704;
+  }
+  .whatsapp-note strong {
+    margin-top: 5px;
+  }
+  .whatsapp-note > span:last-child {
+    margin-top: 2px;
+    line-height: 12.1px;
+  }
+  .resume-note {
+    padding: 18px 14px 0 21px;
+  }
+  .resume-note .note-label {
+    gap: 6px;
+    line-height: 16.94px;
+  }
+  .resume-note strong {
+    margin-top: 10px;
+  }
+  .resume-note > span:last-child {
+    width: 188px;
+    margin-top: 8px;
+  }
+  .activity {
+    padding-inline: 14px;
+  }
+
+  /* Role card background art (exports are clipped to the card edge) */
+  .role-card--college .role-art {
+    right: -2.8px;
+    opacity: 0.25;
+  }
+  .role-card--job .role-art {
+    right: -2px;
+    bottom: 95px;
+  }
+  .role-card--employer .role-art {
+    right: -3px;
+    bottom: -1.5px;
+  }
+  .role-card--job .role-cta,
+  .role-card--employer .role-cta {
+    width: 305px;
+    top: -1px;
+  }
+  .role-card--employer .role-cta {
+    min-height: 42px;
+    padding-block: 9px;
+    top: -3px;
+  }
+
+  /* Role cards: 8px content gap plus the list's 12px top padding */
+  .role-copy h2 {
+    letter-spacing: 0;
+  }
+  .role-copy > p {
+    max-width: none;
+  }
+  .role-card--college .role-copy ul {
+    margin-top: 20px;
+  }
+  .role-card--job .role-copy ul {
+    margin-top: 18.7px;
+  }
+  .role-card--employer .role-copy ul {
+    margin-top: 16.5px;
+  }
+
+  /* Opportunity feed card: vertical auto layout with a 6px gap */
+  .opportunity-feed {
+    gap: 6px;
+  }
+  .feed-header {
+    align-items: flex-start;
+  }
+  .feed-bolt {
+    margin-top: 4.5px;
+  }
+  .feed-header h3 {
+    line-height: 24.2px;
+  }
+  .feed-header p {
+    margin-top: 8px;
+    line-height: 16.94px;
+  }
+  .new-matches {
+    padding: 6px 12px;
+    line-height: 16px;
+  }
+  .feed-filters {
+    padding: 16px 0;
+  }
+  .feed-filters button {
+    padding: 6px 14px;
+    line-height: 16.94px;
+  }
+  .feed-filters button:first-child {
+    padding-inline: 16px;
+  }
+  .feed-items {
+    min-height: 0;
+    padding: 4px 0 16px;
+  }
+  .feed-item {
+    min-height: 0;
+    height: 107px;
+  }
+  .feed-item:nth-child(3) {
+    height: 105px;
+  }
+  .feed-title {
+    height: 23px;
+    gap: 20px;
+  }
+  .feed-title h4 {
+    line-height: 19.36px;
+  }
+  .feed-title .chip {
+    padding: 2px 8px;
+    border-radius: 6px;
+  }
+  .feed-meta {
+    gap: 14px;
+    margin-top: 3.5px;
+    line-height: 16.94px;
+  }
+  .feed-item p {
+    margin-top: 13px;
+    line-height: 16.94px;
+  }
+  .feed-item:nth-child(3) p {
+    margin-top: 11px;
+  }
+  .feed-item-action {
+    padding: 5px 13px;
+    min-height: 28px;
+    margin-right: 5px;
+  }
+  .feed-item:first-child .feed-item-action {
+    margin-right: 2px;
+  }
+  .feed-footer > span {
+    margin-right: 4.5px;
+  }
+  .feed-footer {
+    margin-top: 0;
+    padding-top: 20px;
+    height: 40px;
+  }
+  .feed-annotation > .icon {
+    width: 63.1px;
+    height: 50.8px;
+    transform: translate(-11.1px, -9.4px);
+  }
+  .feed-annotation p {
+    transform: rotate(-1deg);
+    position: relative;
+    left: -31.5px;
+  }
+
+  /* Resume drop zone */
+  .drop-zone h3 {
+    margin-top: -1.6px;
+  }
+  .drop-zone > p {
+    margin-top: 12px;
+    margin-bottom: 20.1px;
+    line-height: 16.94px;
+  }
+  .upload-button {
+    gap: 10px;
+    padding: 13px 31px;
+    line-height: 16.94px;
+    border-color: #0098ff;
+    background: linear-gradient(90deg, #007ffc 0%, #0098ff 50%, #007ffc 100%);
+    box-shadow:
+      inset 0 0 0 1px #ffffff40,
+      0 10px 24px -4px #4f46e573,
+      0 1px 2px #0000000d;
+  }
+  .app-heading p {
+    position: relative;
+    top: 2px;
+    line-height: 19.36px;
+  }
+  .support-content h2 {
+    position: relative;
+    top: 1px;
+  }
+  .employer-section .process-badges .chip--solid-blue:first-child {
+    padding: 3px 11px;
+  }
+  .matching-stage:last-child strong {
+    position: relative;
+    top: -1.5px;
+  }
+  /* Slider 1:1661: 16px dots (20px selected), #0377eb with a white stroke */
+  .carousel-dots {
+    top: 11px;
+    gap: 7px;
+  }
+  .carousel-dots button::after {
+    width: 16px;
+    height: 16px;
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    background: #0377eb;
+  }
+  .carousel-dots button.is-selected::after {
+    transform: scale(1.25);
+  }
+  .drop-zone > small {
+    margin-top: 18px;
+    margin-bottom: 10.5px;
+    line-height: 14.52px;
+  }
+  .matching-stage small {
+    position: relative;
+    top: -2.2px;
+  }
+
+  /* Stats: icon and copy offsets inside the divided columns */
+  .stat:nth-child(2) {
+    padding-left: 61.6px;
+    gap: 18.4px;
+  }
+  .stat:nth-child(3) {
+    padding-left: 62.3px;
+    gap: 18.3px;
+  }
+  .stat:nth-child(4) {
+    padding-left: 62.2px;
+    gap: 18.3px;
+  }
+
+  /* Footer: the first link in these columns sits in a 26px container */
+  .footer-column:nth-child(n + 4) > :nth-child(2) {
+    padding-block: 2px;
+  }
+
+  /* Employer ambient gradients (Figma 1:1549–1:1551, 64px layer blur) */
+  .employer-section {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    /* 1:1552 "dot grid": one hard-edged radial ellipse at the frame centre */
+    background:
+      radial-gradient(
+        75px 37.8px at 50% 363px,
+        rgb(99 102 241 / 8.4%) 99%,
+        transparent 100%
+      ),
+      #f8fafc;
+  }
+  /* The blobs live in a 660px-tall clipping frame (1:1548). */
+  .employer-section::before {
+    clip-path: inset(-200px -200px -200px -200px);
+  }
+  .employer-section::after {
+    clip-path: inset(-200px -200px 207.2px -200px);
+  }
+  .employer-section .audience-grid::before {
+    clip-path: inset(-200px -200px 144.8px -200px);
+  }
+  .employer-section::before,
+  .employer-section::after,
+  .employer-section .audience-grid::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 9999px;
+    filter: blur(32px);
+    pointer-events: none;
+  }
+  .employer-section::before {
+    left: calc(50% - 848px);
+    top: -144.8px;
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(
+      135deg,
+      rgb(199 210 254 / 40%) 0%,
+      rgb(243 232 255 / 30%) 50%,
+      rgb(243 232 255 / 0%) 100%
+    );
+  }
+  .employer-section::after {
+    left: calc(50% + 262px);
+    top: 217.2px;
+    width: 650px;
+    height: 650px;
+    background: linear-gradient(
+      225deg,
+      rgb(221 214 254 / 35%) 0%,
+      rgb(219 234 254 / 25%) 50%,
+      rgb(219 234 254 / 0%) 100%
+    );
+  }
+  .employer-section .audience-grid::before {
+    left: 220px;
+    top: 240.8px;
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(
+      45deg,
+      rgb(224 231 255 / 30%) 0%,
+      rgb(241 245 249 / 40%) 50%,
+      rgb(241 245 249 / 0%) 100%
+    );
+  }
+
+  /* Employer card badges */
+  .employer-section .process-badges {
+    padding-top: 2.2px;
+  }
+  .employer-section .process-badges .chip:first-child {
+    padding: 4px 12px;
+  }
+  .employer-section .process-badges .chip:last-child {
+    padding: 2px 10px;
+    line-height: 16.5px;
+  }
+
+  /* Footer brand copy */
+  .footer-brand p:first-of-type {
+    margin-top: 20.4px;
+  }
+  .footer-brand p + p {
+    margin-top: 20px;
   }
 }
 

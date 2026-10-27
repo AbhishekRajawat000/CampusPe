@@ -1,7 +1,7 @@
 export const roles = [
   {
     title: "College",
-    description: "Explore colleges, courses,fees, placements & more",
+    description: "Explore colleges, courses,fees, \nplacements & more",
     status: "Coming Soon",
     icon: "1-973",
     art: "1-962",
@@ -16,7 +16,7 @@ export const roles = [
   },
   {
     title: "I'm Looking for a Job",
-    description: "Upload your resume. We'll find jobs that fit you.",
+    description: "Upload your resume. We'll find jobs\nthat fit you.",
     status: "Available Now",
     icon: "1-1025",
     art: "1-1012",
@@ -32,7 +32,7 @@ export const roles = [
   {
     title: "I'm Hiring",
     description:
-      "Connect with colleges and find candidates — from students to graduates.",
+      "Connect with colleges and find \ncandidates — from students to graduates.",
     status: "Coming Soon",
     icon: "1-1077",
     art: "1-1065",
@@ -50,17 +50,17 @@ export const roles = [
 export const steps = [
   {
     title: "Set your preferences",
-    text: "Tell us what you're looking for, from colleges and courses to jobs, internships and gigs.",
+    text: "Tell us what you're looking for, from colleges and \ncourses to jobs, internships and gigs.",
     badge: "Smart Profile",
   },
   {
     title: "Discover relevant opportunities",
-    text: "Explore colleges and career opportunities matched to your profile, interests and goals",
+    text: "Explore colleges and career opportunities matched to \nyour profile, interests and goals",
     badge: "AI Ranked",
   },
   {
     title: "Get notified when something fits",
-    text: "Get notified when a relevant college or new opportunity is found, so you can act early.",
+    text: "Get notified when a relevant college or new opportunity \nis found, so you can act early.",
     badge: "Instant Alerts",
   },
 ];
@@ -173,7 +173,7 @@ export const employerCards = [
     title: "Reduce your time-to-hire",
     text: "Find matched candidates, connect with them and move from shortlist to offer in one streamlined workflow.",
     badges: [
-      { text: "< 2 DAYS", tone: "solid-blue" },
+      { text: "<2 DAYS", tone: "solid-blue" },
       { text: "57% Faster Hiring", tone: "green" },
     ],
   },
