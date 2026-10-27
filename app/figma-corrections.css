@@ -330,3 +330,51 @@
   .matching-stages.is-running::after { animation: stage-connection 6s ease-in-out infinite; }
   @keyframes stage-connection { 0% { transform: scaleX(0); opacity: 1; } 70%, 80% { transform: scaleX(1); opacity: 1; } 95%, 100% { transform: scaleX(1); opacity: 0; } }
 }
+
+/* Employer cards respond without changing their document geometry. */
+@media (hover: hover) and (pointer: fine) {
+  .employer-section .process-card:hover {
+    border-color: #80caff;
+    box-shadow: 0 14px 32px -16px #0098ff66, 0 0 0 1px #0098ff22;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .employer-section .process-card {
+    transition: transform 320ms cubic-bezier(.22,.61,.36,1), border-color 320ms, box-shadow 320ms;
+  }
+  .employer-section .process-number { transition: transform 320ms, background-color 320ms; }
+  @media (hover: hover) and (pointer: fine) {
+    .employer-section .process-card:hover { transform: translateY(-5px); }
+    .employer-section .process-card:hover .process-number { transform: rotate(-6deg) scale(1.1); background-color: #e0efff; }
+  }
+
+  /* Repeating match demonstration: highlights move, content never disappears. */
+  .has-entered .feed-item {
+    position: relative;
+    animation: feed-match-lift 9s cubic-bezier(.22,.61,.36,1) infinite;
+    animation-play-state: paused;
+  }
+  .has-entered .feed-item:nth-child(1) { animation-delay: 0s; --match-delay: 0s; }
+  .has-entered .feed-item:nth-child(2) { animation-delay: 3s; --match-delay: 3s; }
+  .has-entered .feed-item:nth-child(3) { animation-delay: 6s; --match-delay: 6s; }
+  .has-entered .feed-item::after {
+    content: ""; position: absolute; pointer-events: none;
+    left: 18px; right: 18px; bottom: 0; height: 3px; border-radius: 4px;
+    background: linear-gradient(90deg, #0098ff, #8171ff, #5eead4);
+    transform: scaleX(0); transform-origin: left;
+    animation: feed-match-line 9s ease-in-out var(--match-delay) infinite;
+    animation-play-state: paused;
+  }
+  .motion-visible .feed-item, .motion-visible .feed-item::after { animation-play-state: running; }
+  .feed-items:hover .feed-item, .feed-items:hover .feed-item::after,
+  .feed-items:focus-within .feed-item, .feed-items:focus-within .feed-item::after { animation-play-state: paused; }
+  @keyframes feed-match-lift {
+    0%, 33%, 100% { transform: translateY(0); border-color: #e2e8f0; box-shadow: 0 0 0 transparent; }
+    8%, 24% { transform: translateY(-5px); border-color: #80caff; box-shadow: 0 10px 22px -14px #0098ff80; }
+  }
+  @keyframes feed-match-line {
+    0% { transform: scaleX(0); opacity: 1; }
+    25% { transform: scaleX(1); opacity: 1; }
+    32%, 100% { transform: scaleX(1); opacity: 0; }
+  }
+}

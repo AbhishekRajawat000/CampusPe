@@ -473,19 +473,18 @@ function OpportunitySection({ openDialog }) {
   const [active, setActive] = useState(0);
   const sectionRef = useRef(null);
   const [entered, setEntered] = useState(false);
+  const [inView, setInView] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setEntered(true);
-        observer.disconnect();
-      }
+      setInView(entry.isIntersecting);
+      if (entry.isIntersecting) setEntered(true);
     }, { threshold: 0.15 });
     if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
   return (
     <section
-      className={`discovery section ${entered ? "has-entered" : ""}`}
+      className={`discovery section ${entered ? "has-entered" : ""} ${inView ? "motion-visible" : ""}`}
       ref={sectionRef}
       id="opportunities"
       aria-labelledby="discovery-title"

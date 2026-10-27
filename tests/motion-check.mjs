@@ -55,6 +55,27 @@ try {
   assert.equal(await page.locator('.feed-item').count(),1);
   assert.equal(await page.locator('.feed-item').first().evaluate(el=>getComputedStyle(el).opacity),'1');
   await page.locator('.feed-filters button').filter({hasText:/^All$/}).click();
+  await page.mouse.move(0, 0);
+  const result = page.locator('.feed-item').first();
+  await result.scrollIntoViewIfNeeded();
+  await page.locator('.discovery.motion-visible').waitFor();
+  assert.equal(await result.evaluate(el=>getComputedStyle(el).animationName),'feed-match-lift');
+  const transforms = await result.evaluate(async el=>{
+    const animation = el.getAnimations()[0];
+    animation.pause(); animation.currentTime = 1400;
+    await new Promise(requestAnimationFrame);
+    return {transform:getComputedStyle(el).transform,opacity:getComputedStyle(el).opacity};
+  });
+  assert.ok(transforms.transform.includes('-5'), 'Match card should visibly lift');
+  assert.equal(transforms.opacity,'1');
+  await result.hover();
+  assert.equal(await result.evaluate(el=>getComputedStyle(el,'::after').animationPlayState),'paused');
+  await page.screenshot({path:'/tmp/campuspe-feed-motion.png'});
+  const employerCard = page.locator('.employer-section .process-card').first();
+  await employerCard.hover();
+  await page.waitForTimeout(400);
+  assert.equal(await employerCard.evaluate(el=>getComputedStyle(el).transform),'matrix(1, 0, 0, 1, 0, -5)');
+  await page.screenshot({path:'/tmp/campuspe-employer-hover.png'});
   const marquee = page.locator('.partner-marquee');
   const before = await marquee.evaluate(el => getComputedStyle(el).transform);
   await page.waitForTimeout(350);
@@ -87,5 +108,6 @@ try {
   assert.equal(await page.locator('.match-tag').evaluate(el=>getComputedStyle(el).animationName),'none');
   assert.equal(await discovery.evaluate(el=>getComputedStyle(el).animationName),'none');
   assert.equal(await page.locator('.matching-stage').first().evaluate(el=>getComputedStyle(el).animationName),'none');
+  assert.equal(await result.evaluate(el=>getComputedStyle(el).animationName),'none');
   console.log('Passed: screenshot gradient properties, college container, continuous logos, duplicate accessibility, badge animation, phone hover, footer layout, seven widths, and reduced motion.');
 } finally { await browser.close(); server.close(); }
