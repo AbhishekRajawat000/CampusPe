@@ -95,6 +95,13 @@ try {
   for (const width of [1440,1280,1200,1024,768,390,320]) {
     await page.setViewportSize({width,height:900});
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth > innerWidth),false,`Horizontal overflow at ${width}`);
+    await page.locator('.carousel-dots button').nth(4).click();
+    await page.waitForTimeout(900);
+    const centered = await page.locator('.phone--2').boundingBox();
+    const stage = await page.locator('.phone-row').boundingBox();
+    assert.ok(Math.abs(centered.x + centered.width / 2 - stage.x - stage.width / 2) < 3, `Phone stays centered at ${width}`);
+    assert.equal(await page.locator('.phone--2 img').getAttribute('alt'), await page.locator('.carousel-dots button').nth(4).getAttribute('aria-label').then(label=>label.replace('Show ','')));
+
     if (width>=1200) {
       const banner = await page.locator('.next-banner').boundingBox();
       const title = await page.locator('.next-banner h2').boundingBox();

@@ -775,9 +775,17 @@ function AudienceSection({ employer = false, openDialog }) {
 
 function AppSection({ openDialog }) {
   const [selected, setSelected] = useState(2);
+  const [phoneSlots, setPhoneSlots] = useState(() => appScreens.map((_, i) => i));
   const hoverLock = useRef(0);
   const selectScreen = (index) => {
     hoverLock.current = performance.now() + 850;
+    if (index === selected) return;
+    setPhoneSlots(slots => {
+      const next = [...slots];
+      const center = slots.indexOf(2);
+      [next[index], next[center]] = [next[center], next[index]];
+      return next;
+    });
     setSelected(index);
   };
   return (
@@ -800,7 +808,7 @@ function AppSection({ openDialog }) {
         <Icon id="1-1669" className="app-gallery-glow" />
         <div className="phone-row">
           {appScreens.map((screen, index) => {
-            const i = (index - selected + 2 + appScreens.length) % appScreens.length;
+            const i = phoneSlots[index];
             return <div
               className={`phone phone--${i}`}
               key={screen.hash}
