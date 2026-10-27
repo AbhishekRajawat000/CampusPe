@@ -472,3 +472,29 @@
   .feed-item-action { position: static; min-height: 44px; margin-left: auto; }
   .carousel-dots button { min-width: 44px; min-height: 44px; }
 }
+
+/* Mobile cards must reserve a full row for their copy and a separate badge row. */
+@media (max-width: 767px) {
+  .audience-grid, .employer-section .audience-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; height: auto; }
+  .audience-section .process-card { display: flex; flex-direction: column; align-items: stretch; padding: 20px; gap: 18px; height: auto; min-height: 0; }
+  .audience-section .process-copy { flex: none; width: 100%; min-width: 0; margin: 0; }
+  .process-card--employer .process-copy { padding-left: 0; }
+  .process-card--employer .process-number { position: static; margin-bottom: 12px; }
+  .audience-section .process-title h3 { font-size: 20px; line-height: 1.35; }
+  .audience-section .process-copy > p { font-size: 15px; line-height: 1.6; white-space: normal; }
+  .audience-section .process-badges { position: static; width: 100%; min-width: 0; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: flex-start; gap: 8px; }
+  .audience-section .process-badges .chip { max-width: 100%; white-space: normal; }
+  .footer-columns { gap: 28px 20px; margin-top: 36px; }
+  .footer-brand p { font-size: 16px; line-height: 1.6; margin-top: 16px; }
+  .footer-column { gap: 4px; }
+  .footer-column h3 { font-size: 16px; margin-bottom: 8px; }
+  .footer-column > a, .footer-column > button { display: flex; align-items: center; min-height: 44px; font-size: 14px; line-height: 1.5; }
+  .footer-column:last-child { grid-column: 1 / -1; }
+  .footer-glow { width: 100%; inset: 0; height: 100%; transform: none; background: linear-gradient(180deg, #f8fafc 0%, #e7f3ff 55%, #d8eaff 100%); }
+  .footer-glow > .icon { display: none; }
+  .footer-contact { margin-top: 32px; }
+  .next-actions { flex-direction: column; }
+  .next-actions .button { width: 100%; min-height: 44px; }
+  .carousel-dots button { width: 44px; height: 44px; background: radial-gradient(circle, #0098ff 0 5px, transparent 6px); }
+  .carousel-dots button.is-selected { background: radial-gradient(circle, #007ffc 0 7px, transparent 8px); }
+}
