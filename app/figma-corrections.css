@@ -408,3 +408,52 @@
   .phone--4 { --phone-x: 1500; --phone-y: 120; --phone-scale: .7; }
 }
 @media (prefers-reduced-motion: reduce) { .phone-row .phone { transition: none; } }
+
+/* Shared gradient hover surfaces for both discovery columns and college cards. */
+.discovery-step, .feed-item, .college-section .process-card {
+  position: relative; isolation: isolate;
+}
+.discovery-step::before, .feed-item::before, .college-section .process-card::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  border-radius: inherit; pointer-events: none; opacity: 0;
+  background: linear-gradient(115deg, #e5f6ff 0%, #eeedff 55%, #e5fff5 100%);
+  background-size: 200% 100%;
+  transition: opacity 300ms ease, background-position 650ms ease;
+}
+.discovery-step:focus-visible::before, .feed-item:focus-within::before { opacity: 1; background-position: 100% 0; }
+@media (hover: hover) and (pointer: fine) {
+  .discovery-step:hover::before, .feed-item:hover::before, .college-section .process-card:hover::before {
+    opacity: 1; background-position: 100% 0;
+  }
+  .discovery-step:hover, .college-section .process-card:hover {
+    border-color: #87caff; box-shadow: 0 14px 28px -18px #5365d980;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .discovery-step, .college-section .process-card {
+    transition: transform 350ms cubic-bezier(.22,1,.36,1), border-color 300ms, box-shadow 300ms;
+  }
+  .college-section .process-label > span, .college-section .process-badges {
+    transition: transform 350ms cubic-bezier(.22,1,.36,1);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .has-entered .discovery-step:hover { animation: none; transform: translateY(-4px); }
+    .college-section .process-card:hover { transform: translateY(-5px); }
+    .college-section .process-card:hover .process-label > span { transform: scale(1.12) rotate(-5deg); }
+    .college-section .process-card:hover .process-badges { transform: translateY(-3px); }
+  }
+  .discovery-step:focus-visible { animation: none; transform: translateY(-4px); }
+  .motion-visible .discovery-step .step-number {
+    animation: discovery-number-signal 9s ease-in-out infinite;
+  }
+  .motion-visible .discovery-step:nth-child(2) .step-number { animation-delay: 3s; }
+  .motion-visible .discovery-step:nth-child(3) .step-number { animation-delay: 6s; }
+  .discovery-steps:hover .step-number, .discovery-steps:focus-within .step-number { animation-play-state: paused; }
+  @keyframes discovery-number-signal {
+    0%, 33%, 100% { transform: scale(1); box-shadow: 0 0 0 0 #0098ff00; }
+    8%, 24% { transform: scale(1.1); box-shadow: 0 0 0 5px #0098ff12; }
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .discovery-step::before, .feed-item::before, .college-section .process-card::before { transition: none; }
+}
